@@ -2,8 +2,8 @@ import React from "react";
 import "./About.scss";
 const About = () => {
   return (
-    <div>
-      <h2>About</h2>
+    <div className="about">
+      <h2>A propos</h2>
     </div>
   );
 };
