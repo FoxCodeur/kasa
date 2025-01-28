@@ -1,0 +1,23 @@
+.navigation {
+  .navigation__list {
+    display: flex;
+    list-style: none; /* Enlève les puces des éléments de la liste */
+    margin: 0;
+    padding: 0;
+
+    /* Ajout de la logique des liens de navigation ici */
+    .navigation__link {
+      padding: 0.5rem 1rem; /* Ajoute un peu de padding autour des liens */
+      margin-right: 1rem; /* Espacement entre les liens */
+      color: #000; /* Couleur du texte des liens */
+      font-size: 1rem;
+    }
+
+    /* Pour le dernier élément de la liste, on enlève la marge à droite */
+    li:last-child {
+      .navigation__link {
+        margin-right: 0;
+      }
+    }
+  }
+}

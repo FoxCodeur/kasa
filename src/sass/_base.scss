@@ -1,0 +1,86 @@
+@use "variables" as *;
+// _base.scss
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+// dégradé cards
+$gradient-background: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0) 0%,
+  rgba(10, 10, 10, 0) 42%,
+  rgba(4, 4, 4, 0.205) 99.99%,
+  rgba(0, 0, 0, 0.5) 100%
+);
+// La charte graphique de Kasa
+$primary-color: #ff6060; // Couleur primaire
+$secondary-color: #000000; // Couleur secondaire
+
+// Font size variables
+// ==========================
+.xx-font {
+  font-size: $font-size-xxxl; // 48px
+  line-height: 68.45px;
+  font-weight: 700; // Extra bold
+} // Extra large
+
+.xl-font {
+  font-size: $font-size-xxl; // 36px
+  line-height: 51.34px;
+  font-weight: 500; // Medium bold
+} // Large
+
+// Version 1: l-font avec font-weight: 700 (Bold)
+.l-font {
+  font-size: $font-size-xl; // 24px
+  line-height: 24px;
+  font-weight: 700; // Bold
+} // Medium large
+
+// Version 2: l-font avec font-weight: 500 (Medium)
+.l-font-light {
+  font-size: $font-size-xl; // 24px
+  line-height: 34.22px;
+  font-weight: 500; // Medium weight
+} // Medium large (light version)
+
+.m-font {
+  font-size: $font-size-m; // 18px
+  line-height: 25.67px;
+  font-weight: 700; // Bold
+} // Medium
+
+.m-font-light {
+  font-size: $font-size-m; // 18px
+  line-height: 25.67px;
+  font-weight: 500; // Medium weight
+} // Medium (light version)
+
+.s-font {
+  font-size: $font-size-s; // 14px
+  line-height: 19.96px;
+  font-weight: 500; // Regular weight
+} // Small
+.xs-font-bold {
+  font-size: $font-size-xs; // 13px
+  line-height: 18.54px;
+  font-weight: 700; // Bold weight
+} // Extra small (bold version)
+
+.xxs-font {
+  font-size: $font-size-xxs; // 12px
+  line-height: 17.11px;
+  font-weight: 400; // Regular weight
+} // Tiny
+// Version 2: xxs-font avec font-weight: 500 (Medium)
+.xxs-font-light {
+  font-size: $font-size-xxs; // 12px
+  line-height: 17.11px;
+  font-weight: 500; // Medium weight
+} // Tiny (light version)
+.xxxs-font {
+  font-size: $font-size-xxxs; // 10px
+  line-height: 14.26px;
+  font-weight: 700; // Regular weight
+} // Très tiny (10px)
