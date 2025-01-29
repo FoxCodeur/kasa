@@ -1,41 +1,37 @@
 .navigation {
   .navigation__list {
     display: flex;
-    list-style: none; /* Enlève les puces des éléments de la liste */
+    justify-content: center;
+    gap: 57px;
     margin: 0;
-    padding: 0;
 
-    /* Ajout de la logique des liens de navigation ici */
     .navigation__link {
-      padding: 0.5rem 1rem; /* Ajoute un peu de padding autour des liens */
-      margin-right: 1rem; /* Espacement entre les liens */
-      color: #000; /* Couleur du texte des liens */
+      display: inline-block;
+      text-align: center;
+      color: #000;
       font-size: 1rem;
+      text-decoration: none; /* Aucun soulignement par défaut */
+      position: relative; /* Nécessaire pour afficher le soulignement */
     }
 
-    /* Pour le dernier élément de la liste, on enlève la marge à droite */
     li:last-child {
       .navigation__link {
-        margin-right: 0;
+        margin-right: 0; /* Enlève la marge à droite du dernier élément */
       }
     }
   }
 }
-.navigation__link {
-  position: relative; /* Nécessaire pour que le pseudo-élément s'affiche correctement */
-  text-decoration: none; /* Aucun soulignement par défaut */
-}
 
 .navigation__link::after {
-  content: none; /* Aucun pseudo-élément au départ */
+  content: none; /* Aucun pseudo-élément par défaut */
 }
 
 .navigation__link--active::after {
-  content: ""; /* Crée un pseudo-élément uniquement quand le lien est actif */
+  content: ""; /* Crée le soulignement quand le lien est actif */
   position: absolute;
   left: 0;
-  bottom: -5px; /* Ajuste la position sous le lien */
-  width: 100%;
+  bottom: 5px; /* Positionne le soulignement en bas du lien */
+  width: 100%; /* Prend la largeur exacte du texte */
   height: 2px; /* Hauteur du soulignement */
   background-color: #000; /* Couleur du soulignement */
 }

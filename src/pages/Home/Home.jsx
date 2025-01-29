@@ -1,9 +1,10 @@
 import React from "react";
 import "./Home.scss";
+import HomeSectionBanner from "./HomeSectionBanner/HomeSectionBanner";
 const Home = () => {
   return (
-    <div>
-      <h2>Accueil</h2>
+    <div className="home-page">
+      <HomeSectionBanner />
     </div>
   );
 };
