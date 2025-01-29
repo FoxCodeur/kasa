@@ -4,7 +4,7 @@ const ErrorPage = () => {
   return (
     <div className="error-page">
       <h1>Page Not Found</h1>
-      <p>La page que vous cherchez n'existe pas.</p>
+      <p>La page que vous cherchez n&rsquo;existe pas.</p>
     </div>
   );
 };
