@@ -1,0 +1,23 @@
+@use "../../sass/mixins" as *;
+
+.header {
+  @include flex-between;
+  margin: auto;
+  width: 1240px;
+
+  &__logo-title {
+    display: flex;
+  }
+
+  &__img {
+    height: 53px; /* Ajuste la hauteur des images */
+    width: auto; /* Garde les proportions des images */
+    margin-left: 5px; /* Espacement entre les images */
+  }
+
+  // Conteneur de navigation
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+}
