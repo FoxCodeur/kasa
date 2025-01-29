@@ -1,0 +1,28 @@
+@use "../../../../sass/variables" as *;
+@use "../../../../sass/mixins" as *;
+
+.hebergement-card {
+  width: 340px;
+  height: 340px;
+  border-radius: 10px;
+  background: $cardsGradient;
+  display: flex;
+  flex-direction: column; /* Disposition des éléments en colonne */
+  justify-content: flex-end; /* Aligne les éléments vers le bas */
+  align-items: flex-start; /* Aligne le titre à gauche */
+  padding: 10px; /* Ajoute un peu de padding pour le contenu */
+
+  // Utilisation du mixin avec @include pour la media query mobile
+  @include media-query(mobile) {
+    width: 335px;
+    height: 255px;
+  }
+}
+
+.hebergement-card h2 {
+  color: white;
+  margin: 0; /* Élimine les marges par défaut autour du titre */
+  max-width: 300px; /* Définit la largeur maximale du titre */
+  word-wrap: break-word; /* Permet au texte de se couper proprement */
+  overflow-wrap: break-word; /* Assure que le texte se divise proprement sur plusieurs lignes */
+}

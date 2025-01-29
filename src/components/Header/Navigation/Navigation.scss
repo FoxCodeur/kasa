@@ -1,7 +1,7 @@
+@use "../../../sass/mixins" as *;
 .navigation {
   .navigation__list {
-    display: flex;
-    justify-content: center;
+    @include flex-justify-center;
     gap: 57px;
     margin: 0;
 
@@ -12,12 +12,6 @@
       font-size: 1rem;
       text-decoration: none; /* Aucun soulignement par défaut */
       position: relative; /* Nécessaire pour afficher le soulignement */
-    }
-
-    li:last-child {
-      .navigation__link {
-        margin-right: 0; /* Enlève la marge à droite du dernier élément */
-      }
     }
   }
 }
@@ -30,8 +24,8 @@
   content: ""; /* Crée le soulignement quand le lien est actif */
   position: absolute;
   left: 0;
-  bottom: 5px; /* Positionne le soulignement en bas du lien */
-  width: 100%; /* Prend la largeur exacte du texte */
-  height: 2px; /* Hauteur du soulignement */
-  background-color: #000; /* Couleur du soulignement */
+  bottom: 5px;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
 }

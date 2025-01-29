@@ -4,7 +4,7 @@ import "../hebergementCard/HebergementCard.scss";
 const HebergementCard = ({ title }) => {
   return (
     <div className="hebergement-card">
-      <h2>{title}</h2>
+      <h2 className="m-font">{title}</h2>
     </div>
   );
 };

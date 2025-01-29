@@ -7,3 +7,14 @@ $font-size-s: 14px;
 $font-size-xs: 13px;
 $font-size-xxs: 12px;
 $font-size-xxxs: 10px;
+// dégradé cards
+$cardsGradient: linear-gradient(
+  180deg,
+  rgba(255, 96, 96, 1) 0%,
+  rgba(177, 70, 70, 1) 100%
+);
+
+// La charte graphique de Kasa
+$primary-color: #ff6060; // Couleur primaire
+$secondary-color: #000000; // Couleur secondaire
+$tertiary-color: #f6f6f6; // Couleur ternaire
