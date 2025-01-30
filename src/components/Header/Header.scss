@@ -7,12 +7,26 @@
 
   &__logo-title {
     display: flex;
+    align-items: flex-end;
   }
-
-  &__img {
-    height: 53px;
-    width: auto;
-    margin-left: 5px;
+  // Appliquer margin-right uniquement aux images 1, 2 et 3
+  &__img-01,
+  &__img-02,
+  &__img-03 {
+    margin-right: 5px;
+  }
+  &__img-01 {
+    width: 54.33px;
+    height: 62.26px;
+  }
+  &__img-02 {
+    width: 46.04px;
+    height: 53.36px;
+  }
+  &__img-03,
+  &__img-04 {
+    width: 39.41px;
+    height: 48px;
   }
 
   // Conteneur de navigation

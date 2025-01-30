@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import "../hebergementCard/HebergementCard.scss";
 const HebergementCard = ({ title }) => {
   return (
-    <div className="hebergement-card">
+    <li className="hebergement-card">
       <h2 className="m-font">{title}</h2>
-    </div>
+    </li>
   );
 };
 

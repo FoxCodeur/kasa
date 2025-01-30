@@ -4,11 +4,14 @@ import hebergements from "../../../data.json";
 import HebergementCard from "../cardListSection/hebergementCard/HebergementCard";
 const CardListSection = () => {
   return (
-    <div className="card-list-section">
-      {hebergements.map((hebergement) => (
-        <HebergementCard key={hebergement.id} title={hebergement.title} />
-      ))}
-    </div>
+    <article>
+      {/* pour le key on peut choisir l'id ou alors l'index en deuxième paramètre */}
+      <ul className="card-list-section">
+        {hebergements.map((hebergement) => (
+          <HebergementCard key={hebergement.id} title={hebergement.title} />
+        ))}
+      </ul>
+    </article>
   );
 };
 

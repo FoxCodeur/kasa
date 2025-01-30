@@ -1,0 +1,46 @@
+@use "../../sass/mixins" as *;
+@use "../../sass/variables" as *;
+
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 1440px;
+  height: 209px;
+  background-color: $secondary-color;
+  color: $quaternary-color;
+
+  .footer__logo {
+    .footer__logo-title {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+
+  .footer__img-01 {
+    width: 31.51px;
+    height: 36.11px;
+  }
+
+  .footer__img-02 {
+    width: 26.71px;
+    height: 30.95px;
+  }
+
+  .footer__img-03,
+  .footer__img-04 {
+    width: 22.86px;
+    height: 27.84px;
+  }
+
+  // Positionne le copyright en bas
+  .footer__copyright {
+    position: absolute;
+    bottom: 20px; // Ajuste la distance par rapport au bas
+    left: 50%;
+    transform: translateX(-50%); // Centre horizontalement
+  }
+}
