@@ -1,0 +1,24 @@
+@use "../../sass/variables" as *;
+@use "../../sass/mixins" as *;
+.fiche-logement {
+  .fiche-logement__cover {
+    width: 1240px;
+    height: 415px;
+    border-radius: 25px;
+    overflow: hidden;
+    .fiche-logement__cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .fiche-logement__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .fiche-logement__title {
+      color: $primary-color;
+    }
+  }
+}

@@ -7,8 +7,7 @@
   border-radius: 10px;
   background: $cardsGradient;
   @include flex-column;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: space-between;
   padding: 10px;
 
   // Utilisation du mixin avec @include pour la media query mobile
