@@ -1,5 +1,6 @@
 @use "../../../../sass/variables" as *;
 @use "../../../../sass/mixins" as *;
+@use "../../../../sass/base" as *;
 
 .hebergement-card {
   width: 340px;
@@ -18,7 +19,6 @@
 }
 
 .hebergement-card h2 {
-  color: white;
   max-width: 300px; /* Définit la largeur maximale du titre */
   word-wrap: break-word; /* Permet au texte de se couper proprement */
   overflow-wrap: break-word; /* Assure que le texte se divise proprement sur plusieurs lignes */

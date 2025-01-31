@@ -5,7 +5,7 @@ const HebergementCard = ({ title, cover }) => {
   return (
     <li className="hebergement-card">
       <img src={cover} alt="" className="hebergement-card__img" />
-      <h2 className="m-font">{title}</h2>
+      <h2>{title}</h2>
     </li>
   );
 };

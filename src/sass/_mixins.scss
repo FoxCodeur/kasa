@@ -1,4 +1,5 @@
 // Ce sont les mixins fondamentaux pour l'utilisation de flexbox.
+@use "../sass/variables" as *;
 @mixin flex {
   display: flex;
 }
@@ -48,6 +49,7 @@
 }
 // Ces mixins gèrent la direction des éléments en row (ligne) dans le conteneur
 // Flexbox.
+//pour la typographie, les mixins sont BEAUCOUP plus utiles et performants que les classes.
 @mixin flex-row {
   display: flex;
   flex-direction: row;
@@ -130,16 +132,85 @@
 // ==============================
 @mixin media-query($size) {
   @if $size == mobile {
-    @media screen and (max-width: 767px) {
-      @content;
-    }
-  } @else if $size == tablet {
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (max-width: 375px) {
       @content;
     }
   } @else if $size == desktop {
     @media screen and (min-width: 1024px) {
       @content;
     }
+  } @else if $size == between-mobile-desktop {
+    @media screen and (min-width: 376px) and (max-width: 1023px) {
+      @content;
+    }
   }
+}
+
+// ==============================
+// les Fonts
+// ==============================
+@mixin xx-font {
+  font-size: $font-size-xxxl; // 48px
+  line-height: 68.45px;
+  font-weight: 700; // Extra bold
+}
+
+@mixin xl-font {
+  font-size: $font-size-xxl; // 36px
+  line-height: 51.34px;
+  font-weight: 500; // Medium bold
+}
+
+@mixin l-font {
+  font-size: $font-size-xl; // 24px
+  line-height: 24px;
+  font-weight: 700; // Bold
+}
+
+@mixin l-font-light {
+  font-size: $font-size-xl; // 24px
+  line-height: 34.22px;
+  font-weight: 500; // Medium weight
+}
+
+@mixin m-font {
+  font-size: $font-size-m; // 18px
+  line-height: 25.67px;
+  font-weight: 700; // Bold
+}
+
+@mixin m-font-light {
+  font-size: $font-size-m; // 18px
+  line-height: 25.67px;
+  font-weight: 500; // Medium weight
+}
+
+@mixin s-font {
+  font-size: $font-size-s; // 14px
+  line-height: 19.96px;
+  font-weight: 500; // Regular weight
+}
+
+@mixin xs-font-bold {
+  font-size: $font-size-xs; // 13px
+  line-height: 18.54px;
+  font-weight: 700; // Bold weight
+}
+
+@mixin xxs-font {
+  font-size: $font-size-xxs; // 12px
+  line-height: 17.11px;
+  font-weight: 400; // Regular weight
+}
+
+@mixin xxs-font-light {
+  font-size: $font-size-xxs; // 12px
+  line-height: 17.11px;
+  font-weight: 500; // Medium weight
+}
+
+@mixin xxxs-font {
+  font-size: $font-size-xxxs; // 10px
+  line-height: 14.26px;
+  font-weight: 700; // Regular weight
 }
