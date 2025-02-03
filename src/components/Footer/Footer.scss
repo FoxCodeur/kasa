@@ -43,4 +43,8 @@
     left: 50%;
     transform: translateX(-50%); // Centre horizontalement
   }
+  // Mode mobile : tout centrer et adapter la largeur
+  @include media-query(mobile) {
+    width: 100%;
+  }
 }

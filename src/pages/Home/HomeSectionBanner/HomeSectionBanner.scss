@@ -1,9 +1,10 @@
 @use "../../../sass/base" as *;
 @use "../../../sass/mixins" as *;
 @use "../../../sass/variables" as *;
+
 .home-section-banner {
   position: relative;
-  width: 100%; // S'adapte à l'écran
+  width: 100%;
   height: 223px;
   border-radius: 25px;
   border: 1px solid black;
@@ -15,18 +16,18 @@
     background-image: url("/assets/images/panorama.png");
     background-size: cover;
     background-position: center;
-    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+    position: relative;
 
     &::before {
-      content: ""; /* Crée un pseudo-élément */
-      position: absolute; /* Positionne-le au-dessus de l'image */
+      content: "";
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #000000; /* Couleur d'overlay (noir) */
-      opacity: 0.6; /* Ajuste l'opacité pour l'intensité de l'assombrissement */
-      z-index: 0; /* Assure que l'overlay est derrière le texte */
+      background-color: #000000;
+      opacity: 0.6;
+      z-index: 0;
     }
   }
 
@@ -37,18 +38,21 @@
     transform: translate(-50%, -50%);
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    white-space: nowrap; // Empêche de passer à la ligne
-    @include xx-font; // Remplace @extend par @include
-    z-index: 2; /* Assure que le texte est au-dessus de l'overlay */
+    white-space: nowrap;
+    @include xx-font;
+    z-index: 2;
   }
 
-  // Media query pour mobile
   @include media-query(mobile) {
-    max-width: 335px; // Limite la largeur à 335px en mobile
-    height: 111px; // Ajuste la hauteur en mobile
+    width: 335px;
+    height: 111px;
 
     .banner-text {
-      @include l-font;
+      @include s-font;
     }
+  }
+  @include media-query(desktop) {
+    width: 100%;
+    height: 300px;
   }
 }

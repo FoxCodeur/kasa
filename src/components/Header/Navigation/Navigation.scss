@@ -1,26 +1,51 @@
 @use "../../../sass/mixins" as *;
+
 .navigation {
   .navigation__list {
     @include flex-justify-center;
     gap: 57px;
     margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    box-sizing: border-box;
 
     .navigation__link {
       display: inline-block;
       text-align: center;
       color: #000;
       font-size: 1rem;
-      position: relative; /* Nécessaire pour afficher le soulignement */
+      position: relative;
+      white-space: nowrap;
+      padding: 10px;
+    }
+  }
+
+  @include media-query(mobile) {
+    .navigation__list {
+      gap: 0;
+      flex-wrap: nowrap; // Toujours garder les éléments sur la même ligne
+    }
+
+    .navigation__link {
+      font-size: 0.9rem;
+    }
+  }
+
+  @include media-query(mobile-large) {
+    .navigation__list {
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .navigation__link {
+      font-size: 1rem;
     }
   }
 }
 
-.navigation__link::after {
-  content: none; /* Aucun pseudo-élément par défaut */
-}
-
 .navigation__link--active::after {
-  content: ""; /* Crée le soulignement quand le lien est actif */
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;

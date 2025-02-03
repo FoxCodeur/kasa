@@ -4,17 +4,21 @@
   @include flex-between;
   margin: auto;
   width: 1240px;
+  max-width: 100%;
+  padding: 0 20px;
 
   &__logo-title {
     display: flex;
     align-items: flex-end;
   }
+
   // Appliquer margin-right uniquement aux images 1, 2 et 3
   &__img-01,
   &__img-02,
   &__img-03 {
     margin-right: 5px;
   }
+
   &__img-01 {
     width: 54.33px;
     height: 62.26px;
@@ -33,5 +37,33 @@
   &__nav {
     display: flex;
     align-items: center;
+  }
+
+  // Petits laptops et tablettes larges (769px - 1024px)
+  @include media-query(small-laptop) {
+    width: 900px;
+  }
+
+  // Tablettes (481px - 768px)
+  @include media-query(tablet) {
+    width: 700px;
+  }
+
+  // Mobile (≤ 480px)
+  @include media-query(mobile) {
+    width: 100%;
+    &__img-01 {
+      width: 35px;
+      height: 40px;
+    }
+    &__img-02 {
+      width: 30px;
+      height: 35px;
+    }
+    &__img-03,
+    &__img-04 {
+      width: 26px;
+      height: 30px;
+    }
   }
 }

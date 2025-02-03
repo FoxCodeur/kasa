@@ -15,8 +15,8 @@ const CardListSection = () => {
   }, []);
 
   return (
-    <article>
-      <ul className="card-list-section">
+    <article className="card-list-article">
+      <div className="card-list-section">
         {hebergements.map((hebergement) => (
           <NavLink
             key={hebergement.id}
@@ -29,7 +29,7 @@ const CardListSection = () => {
             />
           </NavLink>
         ))}
-      </ul>
+      </div>
     </article>
   );
 };

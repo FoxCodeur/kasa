@@ -135,12 +135,16 @@
     @media screen and (max-width: 375px) {
       @content;
     }
-  } @else if $size == desktop {
-    @media screen and (min-width: 1024px) {
+  } @else if $size == mobile-large {
+    @media screen and (min-width: 376px) and (max-width: 480px) {
       @content;
     }
-  } @else if $size == between-mobile-desktop {
-    @media screen and (min-width: 376px) and (max-width: 1023px) {
+  } @else if $size == tablet {
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media screen and (min-width: 1025px) and (max-width: 1366px) {
       @content;
     }
   }
