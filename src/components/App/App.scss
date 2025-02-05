@@ -1,19 +1,18 @@
 @use "../../sass/mixins" as *;
 
 .app {
+  @include flex-column;
   max-width: 1440px;
   padding-top: 30px;
   gap: 50px;
-  @include flex-column;
+
   margin: auto;
 
   .main-container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
+    @include flex-column;
     width: 100%;
     max-width: 1240px;
-    padding: 40px;
+    margin: auto;
   }
 
   @include media-query(tablet) {
@@ -33,6 +32,7 @@
   }
 
   @include media-query(mobile) {
+    gap: 10px;
     .main-container {
       width: 100%;
       max-width: 375px;

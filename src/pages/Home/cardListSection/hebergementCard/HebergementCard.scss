@@ -3,13 +3,13 @@
 @use "../../../../sass/base" as *;
 
 .hebergement-card {
+  @include flex-column;
+  justify-content: space-between;
   width: 100%;
   max-width: 340px;
   height: 340px;
   border-radius: 10px;
   background: $cardsGradient;
-  @include flex-column;
-  justify-content: space-between;
   padding: 10px;
 
   /* Mobile */

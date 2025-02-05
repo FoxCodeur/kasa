@@ -2,13 +2,12 @@
 @use "../../../sass/mixins" as *;
 
 .card-list-article {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   margin: auto;
-  width: 100%; /* La largeur de l'article prend toute la largeur du parent */
+  width: 100%;
 
   .card-list-section {
-    width: 100%; /* La section prend toute la largeur du parent */
+    width: 100%;
     max-width: 100%; /* Pas de largeur maximale pour éviter toute restriction */
     border-radius: 25px;
     display: grid;
@@ -19,7 +18,7 @@
     padding: 30px;
     justify-content: center;
 
-    /* 📱 Mobile : 1 seule colonne */
+    /* Mobile : 1 seule colonne */
     @include media-query(mobile) {
       grid-template-columns: 1fr; /* Une seule colonne sur mobile */
       gap: 10px;
@@ -50,21 +49,6 @@
       ); /* 3 colonnes sur les écrans de bureau */
       gap: 30px;
       padding: 30px;
-      background: #f6f6f6;
     }
-  }
-
-  /* Rendre les cartes (cards) flexibles */
-  .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    /* Les cartes prennent toute la largeur disponible */
-    width: 100%; /* Les cartes doivent occuper toute la largeur de la grille */
   }
 }

@@ -4,7 +4,11 @@ import "../hebergementCard/HebergementCard.scss";
 const HebergementCard = ({ title, cover }) => {
   return (
     <li className="hebergement-card">
-      <img src={cover} alt="" className="hebergement-card__img" />
+      <img
+        src={cover}
+        alt={`Photo de l'hébergement ${title}`}
+        className="hebergement-card__img"
+      />
       <h2>{title}</h2>
     </li>
   );
@@ -12,8 +16,8 @@ const HebergementCard = ({ title, cover }) => {
 
 // Définir les PropTypes pour valider les props
 HebergementCard.propTypes = {
-  title: PropTypes.string.isRequired, // 'title' doit être une chaîne de caractères et est obligatoire
-  cover: PropTypes.string.isRequired, // 'cover' doit être une chaîne de caractères et est obligatoire
+  title: PropTypes.string.isRequired, // 'title et cover' doivent être des chaîne de caractères et sont obligatoires
+  cover: PropTypes.string.isRequired,
 };
 
 export default HebergementCard;

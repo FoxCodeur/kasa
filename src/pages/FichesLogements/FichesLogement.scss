@@ -1,24 +1,197 @@
 @use "../../sass/variables" as *;
 @use "../../sass/mixins" as *;
+
 .fiche-logement {
+  position: relative;
+  width: 100%;
+
   .fiche-logement__cover {
-    width: 1240px;
+    width: 100%;
     height: 415px;
     border-radius: 25px;
     overflow: hidden;
-    .fiche-logement__cover-img {
+
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
     }
   }
+
   .fiche-logement__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+
     .fiche-logement__title {
+      @include xl-font;
       color: $primary-color;
+    }
+
+    .fiche-logement__location {
+      @include m-font-light;
+    }
+
+    .fiche-logement__owner {
+      display: flex;
+      align-items: center;
+
+      .fiche-logement__owner-name {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-right: 1rem;
+        color: $primary-color;
+        @include m-font-light;
+      }
+
+      .fiche-logement__owner-picture-container {
+        width: 64px;
+        height: 64px;
+        overflow: hidden;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .fiche-logement__rating-tags-container {
+    display: flex;
+    justify-content: space-between;
+    .fiche-logement__tags {
+      width: 50%;
+      display: flex;
+      gap: 8px;
+
+      .fiche-logement__tag {
+        @include s-font-bold;
+        text-align: center;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: $primary-color;
+        color: $quaternary-color;
+        white-space: nowrap;
+      }
+    }
+    .fiche-logement__rating {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .fiche-logement__star--gray {
+      color: $stars-background;
+      font-size: 24px;
+      margin-left: 5px;
+    }
+  }
+
+  .fiche-logement__details {
+    display: flex;
+    gap: 1rem;
+
+    details {
+      width: 50%;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+
+      summary {
+        color: $quaternary-color;
+        background-color: $primary-color;
+        border-radius: 10px;
+        @include s-font-bold;
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+          content: "";
+          background: url("/assets/images/arrow_back.png") no-repeat center;
+          background-size: contain;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &[open] summary::after {
+        transform: rotate(180deg);
+      }
+
+      .summary-content {
+        background-color: $tertiary-color;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  @include media-query(mobile) {
+    width: 97%;
+    .fiche-logement__cover {
+      width: 335px;
+      height: 255px;
+      border-radius: 0;
+    }
+
+    .fiche-logement__header {
+      flex-direction: column;
+      gap: 2rem;
+      .fiche-logement__info-container {
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .fiche-logement__title {
+          font-size: 1.2rem; // Réduction de la taille en mobile si nécessaire
+          line-height: 1.4; // Ajuste selon le design
+          max-height: calc(1.6rem * 2); // Hauteur pour 2 lignes
+          overflow: hidden; // Cache le texte qui dépasse
+          display: block;
+          white-space: normal;
+        }
+      }
+      .fiche-logement__owner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        .fiche-logement__owner-picture-container {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+    .fiche-logement__rating-tags-container {
+      .fiche-logement__tags {
+        .fiche-logement__tag {
+          width: 93px;
+          @include xxxs-font;
+        }
+      }
+      .fiche-logement__rating {
+        // position: absolute;
+        // top: 61%;
+      }
+    }
+
+    .fiche-logement__details {
+      flex-direction: column;
+      gap: 0;
+
+      details {
+        width: 100%;
+      }
     }
   }
 }

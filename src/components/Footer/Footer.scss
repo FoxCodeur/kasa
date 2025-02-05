@@ -3,19 +3,18 @@
 
 .footer {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 1440px;
+  @include flex-column-center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   height: 209px;
+  text-align: center;
   background-color: $secondary-color;
   color: $quaternary-color;
 
   .footer__logo {
     .footer__logo-title {
-      display: flex;
-      justify-content: center;
+      @include flex-justify-center;
       align-items: flex-end;
     }
   }
@@ -42,9 +41,5 @@
     bottom: 20px; // Ajuste la distance par rapport au bas
     left: 50%;
     transform: translateX(-50%); // Centre horizontalement
-  }
-  // Mode mobile : tout centrer et adapter la largeur
-  @include media-query(mobile) {
-    width: 100%;
   }
 }

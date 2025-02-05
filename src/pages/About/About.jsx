@@ -1,9 +1,12 @@
 import React from "react";
 import "./About.scss";
+import AboutSectionBanner from "./AboutSectionBanner/AboutSectionBanner";
+import Collapse from "./Collapse/Collapse";
 const About = () => {
   return (
     <div className="about">
-      <h2>A propos</h2>
+      <AboutSectionBanner />
+      <Collapse />
     </div>
   );
 };

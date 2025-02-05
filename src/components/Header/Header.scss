@@ -2,9 +2,9 @@
 
 .header {
   @include flex-between;
-  margin: auto;
   width: 1240px;
   max-width: 100%;
+  margin: auto;
   padding: 0 20px;
 
   &__logo-title {
@@ -12,7 +12,6 @@
     align-items: flex-end;
   }
 
-  // Appliquer margin-right uniquement aux images 1, 2 et 3
   &__img-01,
   &__img-02,
   &__img-03 {

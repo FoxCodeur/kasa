@@ -11,12 +11,7 @@
   overflow: hidden;
 
   .banner-image {
-    width: 100%;
-    height: 100%;
-    background-image: url("/assets/images/panorama.png");
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    @include background-cover("/assets/images/panorama.png");
 
     &::before {
       content: "";
@@ -44,10 +39,15 @@
   }
 
   @include media-query(mobile) {
-    width: 335px;
+    width: 315px;
     height: 111px;
+    border-radius: 0;
 
     .banner-text {
+      top: 50%;
+      left: 22%;
+      display: flex;
+      flex-direction: column;
       @include s-font;
     }
   }

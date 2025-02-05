@@ -5,30 +5,43 @@ import "./CardListSection.scss";
 import HebergementCard from "../cardListSection/hebergementCard/HebergementCard";
 
 const CardListSection = () => {
-  // useState permet de mettre à jour la valeur de 'hebergements'
   const [hebergements, setHebergements] = useState([]);
+  const [error, setError] = useState(null); // Ajouter un état pour gérer l'erreur
 
   useEffect(() => {
-    axios.get("/data.json").then((response) => {
-      setHebergements(response.data);
-    });
+    // Fonction asynchrone dans useEffect pour utiliser 'await'
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/data.json");
+        setHebergements(response.data); // Mise à jour de l'état avec les données
+      } catch (err) {
+        setError("Une erreur est survenue lors du chargement des données."); // Mise à jour de l'état en cas d'erreur
+        console.error("Erreur lors de la récupération des données:", err); // Affichage de l'erreur dans la console
+      }
+    };
+
+    fetchData(); // Appel de la fonction asynchrone
   }, []);
 
   return (
     <article className="card-list-article">
       <div className="card-list-section">
-        {hebergements.map((hebergement) => (
-          <NavLink
-            key={hebergement.id}
-            to={`/fiche-logement/${hebergement.id}`}
-            className="card-link"
-          >
-            <HebergementCard
-              title={hebergement.title}
-              cover={hebergement.cover}
-            />
-          </NavLink>
-        ))}
+        {error ? ( // Affichage du message d'erreur si une erreur survient
+          <div className="error-message">{error}</div>
+        ) : (
+          hebergements.map((hebergement) => (
+            <NavLink
+              key={hebergement.id}
+              to={`/fiche-logement/${hebergement.id}`}
+              className="card-link"
+            >
+              <HebergementCard
+                title={hebergement.title}
+                cover={hebergement.cover}
+              />
+            </NavLink>
+          ))
+        )}
       </div>
     </article>
   );
