@@ -153,6 +153,16 @@
 // ==============================
 // les Fonts
 // ==============================
+@mixin error-font-desktop {
+  font-size: $font-size-404-error-desktop; // 288px
+  font-weight: 700;
+}
+@mixin error-font-mobile {
+  font-size: $font-size-404-error-mobile; // 96px
+  line-height: 136.9px;
+  font-weight: 700;
+}
+
 @mixin xx-font {
   font-size: $font-size-xxxl; // 48px
   line-height: 68.45px;

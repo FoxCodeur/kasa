@@ -1,6 +1,36 @@
 @use "../../../sass/variables" as *;
 @use "../../../sass/mixins" as *;
+
 .collapse-container {
+  max-width: 1023px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
   .header {
+    color: $quaternary-color;
+    background-color: $primary-color;
+    border-radius: 10px;
+    @include s-font-bold;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .toggleButton {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.3s ease; /* Transition pour la rotation de l'image */
+
+      &.active {
+        img {
+          transform: rotate(180deg); /* Rotation de 180° quand actif */
+        }
+      }
+    }
   }
 }

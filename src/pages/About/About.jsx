@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./About.scss";
 import AboutSectionBanner from "./AboutSectionBanner/AboutSectionBanner";
 import Collapse from "./Collapse/Collapse";
+import { use } from "react";
 const About = () => {
+  const [principles, setPrinciples] = useState([]);
+  useEffect(() => {
+    const fetchPrinciples = async () => {
+      try {
+        const response = await axios.get("/AboutList.json");
+        setPrinciples(response.data);
+      } catch (err) {
+        console.error("Error fetching principles:", err);
+      }
+    };
+    fetchPrinciples();
+  }, []);
+
   return (
     <div className="about">
       <AboutSectionBanner />
-      <Collapse />
+      {/* Boucle sur principles pour afficher chaque Collapse */}
+      {principles.map((principle, index) => (
+        <Collapse
+          key={index}
+          title={principle.title}
+          content={principle.content}
+        />
+      ))}
     </div>
   );
 };

@@ -1,0 +1,29 @@
+/* ErrorPage.scss */
+@use "../../sass/mixins" as *;
+@use "../../sass/variables" as *;
+
+/* Style du container principal de la page d'erreur */
+.error-page {
+  border: 1px solid black;
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%; /* Prend toute la largeur disponible mais pas au-delà du max-width */
+
+  h1 {
+    @include error-font-desktop;
+    color: $primary-color;
+  }
+
+  p {
+    @include xl-font;
+    color: $primary-color;
+  }
+  .return-home {
+    @include m-font-light;
+    text-decoration: underline;
+  }
+}

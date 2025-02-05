@@ -85,7 +85,7 @@ const FicheLogement = () => {
       </div>
 
       <div className="fiche-logement__details">
-        <details>
+        <details className="fiche-logement__description">
           <summary>Description</summary>
           <div className="summary-content">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas

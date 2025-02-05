@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CardListSection.scss";
 import HebergementCard from "../cardListSection/hebergementCard/HebergementCard";
 
 const CardListSection = () => {
-  const [hebergements, setHebergements] = useState([]);
-  const [error, setError] = useState(null); // Ajouter un état pour gérer l'erreur
+  const [hebergements, setHebergements] = useState([]); // S'assurer que l'état initial est un tableau
+  const navigate = useNavigate(); // Hook de navigation pour rediriger l'utilisateur
 
   useEffect(() => {
-    // Fonction asynchrone dans useEffect pour utiliser 'await'
     const fetchData = async () => {
       try {
         const response = await axios.get("/data.json");
-        setHebergements(response.data); // Mise à jour de l'état avec les données
+
+        if (!Array.isArray(response.data)) {
+          throw new Error("Format de données incorrect.");
+        }
+
+        setHebergements(response.data);
       } catch (err) {
-        setError("Une erreur est survenue lors du chargement des données."); // Mise à jour de l'état en cas d'erreur
-        console.error("Erreur lors de la récupération des données:", err); // Affichage de l'erreur dans la console
+        console.error("Erreur lors de la récupération des données:", err);
+        navigate("*"); // Redirection vers la page d'erreur (route 404 ou personnalisée)
       }
     };
 
-    fetchData(); // Appel de la fonction asynchrone
-  }, []);
+    fetchData();
+  }, [navigate]);
 
   return (
     <article className="card-list-article">
       <div className="card-list-section">
-        {error ? ( // Affichage du message d'erreur si une erreur survient
-          <div className="error-message">{error}</div>
-        ) : (
+        {Array.isArray(hebergements) &&
           hebergements.map((hebergement) => (
             <NavLink
               key={hebergement.id}
@@ -40,8 +42,7 @@ const CardListSection = () => {
                 cover={hebergement.cover}
               />
             </NavLink>
-          ))
-        )}
+          ))}
       </div>
     </article>
   );

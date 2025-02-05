@@ -1,12 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Collapse.scss";
 
-const Collapse = () => {
+const Collapse = ({ title, content }) => {
   return (
     <section className="collapse-container">
       <div className="header">
         <div className="title-container">
-          <h3></h3>
+          <h3>{title}</h3>
         </div>
         <button className="toggleButton">
           <img
@@ -17,11 +18,14 @@ const Collapse = () => {
       </div>
       <div className="content-container">
         <div className="text-content">
-          <p></p>
+          <p>{content}</p>
         </div>
       </div>
     </section>
   );
 };
-
+Collapse.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
 export default Collapse;
