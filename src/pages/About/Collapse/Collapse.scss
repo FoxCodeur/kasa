@@ -33,4 +33,17 @@
       }
     }
   }
+  .content-container {
+    display: none; /* Cacher le contenu initialement */
+    opacity: 0; /* Rendre invisible */
+    /* Style visuel du contenu */
+    background-color: $tertiary-color;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    &.appear {
+      display: block; /* Afficher le contenu */
+      opacity: 1; /* Rendre visible */
+    }
+  }
 }

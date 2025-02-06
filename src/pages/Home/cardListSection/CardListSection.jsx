@@ -5,7 +5,8 @@ import "./CardListSection.scss";
 import HebergementCard from "../cardListSection/hebergementCard/HebergementCard";
 
 const CardListSection = () => {
-  const [hebergements, setHebergements] = useState([]); // S'assurer que l'état initial est un tableau
+  const [hebergements, setHebergements] = useState([]); // S'assurer
+  // que l'état initial est bien un tableau
   const navigate = useNavigate(); // Hook de navigation pour rediriger l'utilisateur
 
   useEffect(() => {

@@ -8,10 +8,10 @@
   width: 100%;
   height: 700px;
   display: flex;
+  gap: 139px; /* Espacement par défaut */
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  width: 100%; /* Prend toute la largeur disponible mais pas au-delà du max-width */
 
   h1 {
     @include error-font-desktop;
@@ -22,8 +22,56 @@
     @include xl-font;
     color: $primary-color;
   }
+
   .return-home {
     @include m-font-light;
     text-decoration: underline;
+  }
+
+  /* Media query pour mobile */
+  @include media-query(mobile) {
+    gap: 113px;
+
+    h1 {
+      @include error-font-mobile;
+    }
+
+    p {
+      @include m-font-light;
+    }
+
+    .return-home {
+      @include s-font;
+    }
+  }
+  @include media-query(mobile-large) {
+    gap: 113px;
+
+    h1 {
+      @include error-font-mobile;
+    }
+
+    p {
+      @include m-font-light;
+    }
+
+    .return-home {
+      @include s-font;
+    }
+  }
+  @include media-query(tablet) {
+    gap: 113px;
+
+    h1 {
+      @include error-font-mobile;
+    }
+
+    p {
+      @include m-font-light;
+    }
+
+    .return-home {
+      @include s-font;
+    }
   }
 }
