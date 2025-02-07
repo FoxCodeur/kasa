@@ -1,9 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "./Collapse.scss";
 
 const Collapse = ({ title, content }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);

@@ -3,7 +3,6 @@ import axios from "axios";
 import "./About.scss";
 import AboutSectionBanner from "./AboutSectionBanner/AboutSectionBanner";
 import Collapse from "./Collapse/Collapse";
-import { use } from "react";
 const About = () => {
   const [principles, setPrinciples] = useState([]);
   useEffect(() => {

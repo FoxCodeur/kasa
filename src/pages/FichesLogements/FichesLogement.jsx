@@ -8,7 +8,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 const FicheLogement = () => {
   const { id } = useParams(); // Récupérer l’ID depuis l’URL
   const navigate = useNavigate();
-  // on utilise null et pas vide car il s'agit d'un objet unique
   const [logement, setLogement] = useState(null);
 
   useEffect(() => {
@@ -42,61 +41,70 @@ const FicheLogement = () => {
           />
         </div>
 
-        <div className="fiche-logement__header">
-          <div className="fiche-logement__info-container">
-            <h2 className="fiche-logement__title xl-font">{logement.title}</h2>
-            <p className="fiche-logement__location">{logement.location}</p>
-          </div>
+        {/* Container parent pour regrouper les informations et la notation */}
+        <div className="fiche-logement__info-rating-container">
+          {/* Infos générales + Tags */}
+          <div className="fiche-logement__info-tags">
+            <div className="fiche-logement__info-container">
+              <h2 className="fiche-logement__title">{logement.title}</h2>
+              <p className="fiche-logement__location">{logement.location}</p>
+            </div>
 
-          <div className="fiche-logement__owner">
-            <p className="fiche-logement__owner-name">
-              <span className="prenom">{logement.host.name.split(" ")[0]}</span>
-              <span className="nom">{logement.host.name.split(" ")[1]}</span>
-            </p>
-            <div className="fiche-logement__owner-picture-container">
-              <img
-                className="fiche-logement__owner-picture"
-                src={logement.host.picture}
-                alt={logement.host.name}
-              />
+            <div className="fiche-logement__tags-container">
+              {logement.tags.map((tag, index) => (
+                <span key={index} className="fiche-logement__tag">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
-        </div>
 
-        <div className="fiche-logement__rating-tags-container">
-          <div className="fiche-logement__tags">
-            {logement.tags.map((tag, index) => (
-              <span key={index} className="fiche-logement__tag">
-                {tag}
-              </span>
-            ))}
-          </div>
+          {/* Propriétaire + Notation */}
+          <div className="fiche-logement__owner-rating">
+            <div className="fiche-logement__owner">
+              <p className="fiche-logement__owner-name">
+                <span className="fiche-logement__owner-firstname">
+                  {logement.host.name.split(" ")[0]}
+                </span>
+                <span className="fiche-logement__owner-lastname">
+                  {logement.host.name.split(" ")[1]}
+                </span>
+              </p>
+              <div className="fiche-logement__owner-picture-container">
+                <img
+                  className="fiche-logement__owner-picture"
+                  src={logement.host.picture}
+                  alt={logement.host.name}
+                />
+              </div>
+            </div>
 
-          <div className="fiche-logement__rating">
-            {[...Array(5)].map((_, index) => (
-              <FontAwesomeIcon
-                key={index}
-                icon={faStar}
-                className={
-                  index < logement.rating
-                    ? "fiche-logement__star--red"
-                    : "fiche-logement__star--gray"
-                }
-              />
-            ))}
+            <div className="fiche-logement__rating">
+              {[...Array(5)].map((_, index) => (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={faStar}
+                  className={
+                    index < logement.rating
+                      ? "fiche-logement__star--red"
+                      : "fiche-logement__star--gray"
+                  }
+                />
+              ))}
+            </div>
           </div>
         </div>
 
         <div className="fiche-logement__details">
           <details className="fiche-logement__description">
             <summary>Description</summary>
-            <div className="summary-content">
+            <div className="fiche-logement__summary-content">
               <p>{logement.description}</p>
             </div>
           </details>
           <details className="fiche-logement__equipments">
             <summary>Équipements</summary>
-            <div className="summary-content">
+            <div className="fiche-logement__summary-content">
               <ul>
                 {logement.equipments.map((equipment, index) => (
                   <li key={index}>{equipment}</li>
