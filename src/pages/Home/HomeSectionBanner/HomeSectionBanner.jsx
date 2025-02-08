@@ -1,14 +1,14 @@
 import React from "react";
+import Banner from "../../../components/Banner/Banner";
 import "./HomeSectionBanner.scss";
+
 const HomeSectionBanner = () => {
   return (
-    <section className="home-section-banner">
-      <div className="banner-image"></div> {/* L’image est gérée côté SCSS */}
-      <h1 className="banner-text">
-        <span className="first-line">Chez vous, </span>
-        <span className="second-line">partout et ailleurs</span>
-      </h1>
-    </section>
+    <Banner
+      className="home-section-banner"
+      text={{ firstLine: "Chez vous, ", secondLine: "partout et ailleurs" }}
+      imageUrl="../../../assets/images/panorama.png"
+    />
   );
 };
 
