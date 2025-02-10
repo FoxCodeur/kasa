@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./About.scss";
 import AboutSectionBanner from "./AboutSectionBanner/AboutSectionBanner";
-import Collapse from "./Collapse/Collapse";
+import Collapse from "../../components/Collapse/Collapse";
 const About = () => {
   const [principles, setPrinciples] = useState([]);
   useEffect(() => {

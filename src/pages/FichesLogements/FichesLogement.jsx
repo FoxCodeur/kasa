@@ -4,6 +4,7 @@ import axios from "axios";
 import "./FichesLogement.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Collapse from "../../components/Collapse/Collapse"; // Importation du composant Collapse
 
 const FicheLogement = () => {
   const { id } = useParams(); // Récupérer l’ID depuis l’URL
@@ -95,24 +96,25 @@ const FicheLogement = () => {
           </div>
         </div>
 
-        <div className="fiche-logement__details">
-          <details className="fiche-logement__description">
-            <summary>Description</summary>
-            <div className="fiche-logement__summary-content">
-              <p>{logement.description}</p>
-            </div>
-          </details>
-          <details className="fiche-logement__equipments">
-            <summary>Équipements</summary>
-            <div className="fiche-logement__summary-content">
-              <ul>
-                {logement.equipments.map((equipment, index) => (
-                  <li key={index}>{equipment}</li>
-                ))}
-              </ul>
-            </div>
-          </details>
-        </div>
+        {/* Utilisation du composant Collapse pour gérer la description */}
+        <Collapse
+          title="Description"
+          content={<p>{logement.description}</p>}
+          className="fiche-logement__description"
+        />
+
+        {/* Utilisation du composant Collapse pour gérer les équipements */}
+        <Collapse
+          title="Équipements"
+          content={
+            <ul>
+              {logement.equipments.map((equipment, index) => (
+                <li key={index}>{equipment}</li>
+              ))}
+            </ul>
+          }
+          className="fiche-logement__equipments"
+        />
       </div>
     )
   );

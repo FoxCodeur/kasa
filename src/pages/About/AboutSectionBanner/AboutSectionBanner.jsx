@@ -1,11 +1,12 @@
 import React from "react";
-import "./AboutSectionBanner.scss";
+import Banner from "../../../components/Banner/Banner";
+
 const AboutSectionBanner = () => {
   return (
-    <section className="about-section-banner">
-      <div className="about-section-banner__image"></div>{" "}
-      {/* L’image est gérée côté SCSS */}
-    </section>
+    <Banner
+      className="no-darken" // désactiver l'assombrissement
+      imageUrl="/assets/images/forêt.png"
+    />
   );
 };
 
