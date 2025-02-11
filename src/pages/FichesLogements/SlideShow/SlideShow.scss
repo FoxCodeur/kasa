@@ -1,0 +1,50 @@
+@use "../../../sass/mixins" as *;
+
+.carousel-root {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+
+  .carousel {
+    .slide {
+      height: 415px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        object-fit: contain; /* Contenir l'image sans la déformer */
+        object-position: center; /* Centrer l'image si elle est plus petite que le conteneur */
+        max-width: 100%; /* L'image ne dépasse jamais la largeur du conteneur */
+        max-height: 100%; /* L'image ne dépasse jamais la hauteur du conteneur */
+      }
+    }
+  }
+
+  .control-arrow.control-prev,
+  .control-arrow.control-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .control-arrow.control-prev {
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    &:hover {
+      background-color: rgba(0, 0, 0, 1);
+    }
+  }
+
+  .control-arrow.control-next {
+    position: absolute;
+    top: 50%;
+    right: 1%;
+    &:hover {
+      background-color: rgba(0, 0, 0, 1);
+    }
+  }
+}

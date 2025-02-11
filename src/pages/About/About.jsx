@@ -3,8 +3,10 @@ import axios from "axios";
 import "./About.scss";
 import AboutSectionBanner from "./AboutSectionBanner/AboutSectionBanner";
 import Collapse from "../../components/Collapse/Collapse";
+
 const About = () => {
   const [principles, setPrinciples] = useState([]);
+
   useEffect(() => {
     const fetchPrinciples = async () => {
       try {
@@ -20,12 +22,12 @@ const About = () => {
   return (
     <div className="about">
       <AboutSectionBanner />
-      {/* Boucle sur principles pour afficher chaque Collapse */}
       {principles.map((principle, index) => (
         <Collapse
           key={index}
           title={principle.title}
           content={principle.content}
+          fullWidth={true} // 👉 Ajout de la prop pour élargir à 100%
         />
       ))}
     </div>

@@ -8,7 +8,9 @@
   vertical-align: top;
   margin: 0 auto;
   padding: 5px;
-
+  &.full-width {
+    width: 100%; // 👉 Si fullWidth est activé, alors 100%
+  }
   .header {
     color: $quaternary-color;
     background-color: $primary-color;
@@ -21,6 +23,10 @@
     align-items: center;
     cursor: pointer;
 
+    .title-container {
+      @include l-font;
+    }
+
     .toggleButton {
       background-color: transparent;
       border: none;
@@ -29,12 +35,12 @@
 
       img {
         transition: transform 0.3s ease-in-out;
-        will-change: transform; // Améliore la fluidité
-        transform: rotate(0deg); // Définit l'état initial de la rotation
+        will-change: transform;
+        transform: rotate(0deg);
       }
 
       &.active img {
-        transform: rotate(180deg); // Applique la rotation à 180deg quand actif
+        transform: rotate(180deg);
       }
     }
   }
@@ -53,6 +59,45 @@
       opacity: 1;
       padding-top: 1rem;
       padding-bottom: 1rem;
+    }
+  }
+  @include media-query(mobile) {
+    width: 100%;
+
+    .header {
+      .title-container {
+        @include xs-font-bold;
+      }
+    }
+
+    .content-container {
+      padding: 0.5rem;
+    }
+  }
+  @include media-query(mobile-large) {
+    width: 100%;
+
+    .header {
+      .title-container {
+        @include xs-font-bold;
+      }
+    }
+
+    .content-container {
+      padding: 0.5rem;
+    }
+  }
+  @include media-query(tablet) {
+    width: 100%;
+
+    .header {
+      .title-container {
+        @include xs-font-bold;
+      }
+    }
+
+    .content-container {
+      padding: 0.5rem;
     }
   }
 }

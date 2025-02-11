@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./FichesLogement.scss";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Collapse from "../../components/Collapse/Collapse"; // Importation du composant Collapse
-
+import SlideShow from "./SlideShow/SlideShow";
 const FicheLogement = () => {
   const { id } = useParams(); // Récupérer l’ID depuis l’URL
   const navigate = useNavigate();
@@ -34,13 +35,7 @@ const FicheLogement = () => {
   return (
     logement && (
       <div className="fiche-logement">
-        <div className="fiche-logement__cover">
-          <img
-            src={logement.cover}
-            alt={logement.title}
-            className="fiche-logement__cover-img"
-          />
-        </div>
+        <SlideShow images={logement.pictures} />
 
         {/* Container parent pour regrouper les informations et la notation */}
         <div className="fiche-logement__info-rating-container">

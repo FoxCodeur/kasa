@@ -7,11 +7,11 @@ const defaultImageUrl = "/assets/images/panorama.png";
 
 const Banner = ({ className = "", text, imageUrl }) => {
   return (
-    <section className={`banner ${className}`}>
+    <section className="banner">
       <div
-        className="banner__image"
+        className={`banner__image ${className}`} // Ajout de className ici ✅
         style={{
-          backgroundImage: `url(${imageUrl || defaultImageUrl})`, // Si imageUrl est vide, utilise defaultImageUrl
+          backgroundImage: `url(${imageUrl || defaultImageUrl})`,
         }}
       ></div>
 
