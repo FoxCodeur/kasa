@@ -1,18 +1,28 @@
-import "./stars.scss";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import "./Stars.scss";
 
 const Stars = ({ rating }) => {
-  const items = [1, 2, 3, 4, 5];
   return (
     <div className="stars">
-      {items.map((item) => {
-        rating > item ? (
-          <i className="fas fa-star">Rouge</i>
-        ) : (
-          <i className="far fa-star">Gris</i>
-        );
-      })}
+      {Array.from({ length: 5 }, (_, index) => (
+        <FontAwesomeIcon
+          key={index}
+          icon={faStar}
+          className={
+            index < rating
+              ? "stars__icon stars__icon--filled"
+              : "stars__icon stars__icon--empty"
+          }
+        />
+      ))}
     </div>
   );
+};
+
+Stars.propTypes = {
+  rating: PropTypes.number.isRequired,
 };
 
 export default Stars;

@@ -9,7 +9,7 @@ const Banner = ({ className = "", text, imageUrl }) => {
   return (
     <section className="banner">
       <div
-        className={`banner__image ${className}`} // Ajout de className ici ✅
+        className={`banner__image ${className}`} // Ajout de className ici
         style={{
           backgroundImage: `url(${imageUrl || defaultImageUrl})`,
         }}

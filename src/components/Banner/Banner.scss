@@ -49,8 +49,7 @@
     .banner__text {
       top: 50%;
       left: 22%;
-      display: flex;
-      flex-direction: column;
+      @include flex-column;
       @include s-font;
     }
   }

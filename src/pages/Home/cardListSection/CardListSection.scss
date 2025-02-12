@@ -8,7 +8,7 @@
 
   .card-list-section {
     width: 100%;
-    max-width: 100%; /* Pas de largeur maximale pour éviter toute restriction */
+    max-width: 100%;
     border-radius: 25px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 colonnes flexibles */
@@ -20,7 +20,7 @@
 
     /* Mobile : 1 seule colonne */
     @include media-query(mobile) {
-      grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+      grid-template-columns: 1fr;
       gap: 10px;
       padding: 0;
       background: #ffffff;
