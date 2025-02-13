@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Stars.scss";
-
 const Stars = ({ rating }) => {
   return (
     <div className="stars">
