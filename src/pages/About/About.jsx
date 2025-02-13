@@ -27,7 +27,7 @@ const About = () => {
           key={index}
           title={principle.title}
           content={principle.content}
-          fullWidth={true} // 👉 Ajout de la prop pour élargir à 100%
+          fullWidth={true} // Ajout de la prop pour élargir à 100%
         />
       ))}
     </div>
