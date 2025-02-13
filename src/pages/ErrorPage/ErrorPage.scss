@@ -1,0 +1,76 @@
+/* ErrorPage.scss */
+@use "../../sass/mixins" as *;
+@use "../../sass/variables" as *;
+
+/* Style du container principal de la page d'erreur */
+.error-page {
+  border: 1px solid black;
+  width: 100%;
+  height: 700px;
+  @include flex-column;
+  justify-content: space-around;
+  gap: 139px;
+  text-align: center;
+
+  h1 {
+    @include error-font-desktop;
+    color: $primary-color;
+  }
+
+  p {
+    @include xl-font;
+    color: $primary-color;
+  }
+
+  .return-home {
+    @include m-font-light;
+    text-decoration: underline;
+  }
+
+  /* Media query pour mobile */
+  @include media-query(mobile) {
+    gap: 113px;
+
+    h1 {
+      @include error-font-mobile;
+    }
+
+    p {
+      @include m-font-light;
+    }
+
+    .return-home {
+      @include s-font;
+    }
+  }
+  @include media-query(mobile-large) {
+    gap: 113px;
+
+    h1 {
+      @include error-font-mobile;
+    }
+
+    p {
+      @include m-font-light;
+    }
+
+    .return-home {
+      @include s-font;
+    }
+  }
+  @include media-query(tablet) {
+    gap: 113px;
+
+    h1 {
+      @include error-font-mobile;
+    }
+
+    p {
+      @include m-font-light;
+    }
+
+    .return-home {
+      @include s-font;
+    }
+  }
+}

@@ -10,12 +10,8 @@ const App = () => {
     <div className="app">
       <Header />
       <main className="main-container">
-        {" "}
-        {/* Ajout du main ici */}
         <Routes>
           {routesConfig.map((route, index) => (
-            // Dans le tableau routesConfig, index itère 0 pour le
-            // premier élément, 1 pour le deuxième élément,etc.
             <Route key={index} path={route.path} element={<route.element />} />
           ))}
         </Routes>

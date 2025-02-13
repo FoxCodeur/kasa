@@ -1,4 +1,6 @@
 // Définition des variables de tailles de police
+$font-size-404-error-desktop: 288px; /* Taille du titre "Erreur 404" */
+$font-size-404-error-mobile: 96px; /* Taille de la description */
 $font-size-xxxl: 48px;
 $font-size-xxl: 36px;
 $font-size-xl: 24px;
@@ -7,3 +9,18 @@ $font-size-s: 14px;
 $font-size-xs: 13px;
 $font-size-xxs: 12px;
 $font-size-xxxs: 10px;
+// dégradé cards
+$cardsGradient: linear-gradient(
+  180deg,
+  rgba(255, 96, 96, 1) 0%,
+  rgba(177, 70, 70, 1) 100%
+);
+
+// La charte graphique de Kasa
+$primary-color: #ff6060;
+$secondary-color: #000000;
+$tertiary-color: #f6f6f6;
+$quaternary-color: white;
+$stars-background: #e3e3e3;
+// image par défaut visible sur les Banner
+// variables.scss

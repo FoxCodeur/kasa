@@ -1,11 +1,13 @@
 import React from "react";
-import "./HomeSectionBanner.scss";
+import Banner from "../../../components/Banner/Banner";
+import "../../../components/Banner/Banner.scss";
+
 const HomeSectionBanner = () => {
   return (
-    <section className="home-section-banner">
-      <div className="banner-image"></div> {/* L’image est gérée côté SCSS */}
-      <h1 className="banner-text">Chez vous, partout et ailleurs</h1>
-    </section>
+    <Banner
+      text={{ firstLine: "Chez vous, ", secondLine: "partout et ailleurs" }}
+      imageUrl=""
+    />
   );
 };
 

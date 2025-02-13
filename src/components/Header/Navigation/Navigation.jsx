@@ -14,7 +14,6 @@ const Navigation = () => {
                 ? "navigation__link l-font-light navigation__link--active"
                 : "navigation__link l-font-light"
             }
-            end // Cela garantit que le lien est actif uniquement pour la route exacte
           >
             Accueil
           </NavLink>

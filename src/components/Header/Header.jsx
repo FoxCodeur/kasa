@@ -11,14 +11,26 @@ const Header = () => {
           {" "}
           {/* Utilisation de NavLink ici */}
           <div className="header__logo-title">
-            <img src="/assets/images/k.png" className="header__img" alt="K" />
+            <img
+              src="/assets/images/k.png"
+              className="header__img-01"
+              alt="K"
+            />
             <img
               src="/assets/images/Group.png"
-              className="header__img"
+              className="header__img-02"
               alt="logo"
             />
-            <img src="/assets/images/s.png" className="header__img" alt="S" />
-            <img src="/assets/images/a.png" className="header__img" alt="A" />
+            <img
+              src="/assets/images/s.png"
+              className="header__img-03"
+              alt="S"
+            />
+            <img
+              src="/assets/images/a.png"
+              className="header__img-04"
+              alt="A"
+            />
           </div>
         </NavLink>
       </div>

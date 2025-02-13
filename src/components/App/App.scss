@@ -1,15 +1,41 @@
 @use "../../sass/mixins" as *;
+
 .app {
-  max-width: 1440px;
-  // height: 100vh;
-  // height: 1517px;
-  padding: 50px 0;
-  gap: 50px;
   @include flex-column;
+  max-width: 1440px;
+  gap: 50px;
+  padding-top: 30px;
   margin: auto;
+
   .main-container {
-    display: flex;
+    @include flex-column;
+    width: 100%;
+    max-width: 1240px;
     margin: auto;
-    width: 1240px;
+  }
+
+  @include media-query(tablet) {
+    .main-container {
+      width: 100%;
+      max-width: 768px;
+      padding: 30px;
+    }
+  }
+
+  @include media-query(mobile-large) {
+    .main-container {
+      width: 100%;
+      max-width: 480px;
+      padding: 20px;
+    }
+  }
+
+  @include media-query(mobile) {
+    gap: 10px;
+    .main-container {
+      width: 100%;
+      max-width: 375px;
+      padding: 10px;
+    }
   }
 }

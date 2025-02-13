@@ -1,0 +1,28 @@
+@use "../../sass/mixins" as *;
+
+.home-page {
+  @include flex-column;
+  width: 100%;
+  max-width: 1240px;
+  margin: auto;
+
+  /* Media query pour mobile */
+  @include media-query(mobile) {
+    padding: 0 20px;
+  }
+
+  /* Media query pour mobile-large */
+  @include media-query(mobile-large) {
+    padding: 0 30px;
+  }
+
+  /* Media query pour tablette */
+  @include media-query(tablet) {
+    padding: 0 40px;
+  }
+
+  /* Media query pour desktop */
+  @include media-query(desktop) {
+    padding: 0 50px;
+  }
+}

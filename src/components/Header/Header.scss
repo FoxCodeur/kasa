@@ -2,22 +2,60 @@
 
 .header {
   @include flex-between;
-  margin: auto;
   width: 1240px;
+  max-width: 100%;
+  margin: auto;
+  padding: 0 20px;
 
   &__logo-title {
     display: flex;
+    align-items: flex-end;
   }
 
-  &__img {
-    height: 53px; /* Ajuste la hauteur des images */
-    width: auto; /* Garde les proportions des images */
-    margin-left: 5px; /* Espacement entre les images */
+  &__img-01,
+  &__img-02,
+  &__img-03 {
+    margin-right: 5px;
+  }
+
+  &__img-01 {
+    width: 54.33px;
+    height: 62.26px;
+  }
+  &__img-02 {
+    width: 46.04px;
+    height: 53.36px;
+  }
+  &__img-03,
+  &__img-04 {
+    width: 39.41px;
+    height: 48px;
   }
 
   // Conteneur de navigation
   &__nav {
     display: flex;
     align-items: center;
+  }
+
+  @include media-query(tablet) {
+    width: 700px;
+  }
+
+  @include media-query(mobile) {
+    width: 100%;
+    &__img-01 {
+      width: 35px;
+      height: 40px;
+    }
+    &__img-02 {
+      width: 30px;
+      height: 35px;
+    }
+    &__img-03,
+    &__img-04 {
+      width: 26px;
+      height: 30px;
+    }
   }
 }
