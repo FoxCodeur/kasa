@@ -28,11 +28,10 @@
 
     /* Media query pour mobile-large */
     @include media-query(mobile-large) {
-      grid-template-columns: repeat(
-        2,
-        1fr
-      ); /* 2 colonnes pour les grands écrans mobiles */
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 0;
+      background: #ffffff;
     }
 
     /* Media query pour tablette */

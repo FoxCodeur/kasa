@@ -11,6 +11,8 @@ const App = () => {
       <Header />
       <main className="main-container">
         <Routes>
+          {/* Oui, dans ce code, route et index sont des props passées à la
+         fonction à l'intérieur de la méthode .map(). */}
           {routesConfig.map((route, index) => (
             <Route key={index} path={route.path} element={<route.element />} />
           ))}

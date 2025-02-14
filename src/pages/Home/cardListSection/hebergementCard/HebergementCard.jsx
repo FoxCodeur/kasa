@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../hebergementCard/HebergementCard.scss";
+
 const HebergementCard = ({ title, cover }) => {
   return (
     <li className="hebergement-card">
@@ -9,14 +10,14 @@ const HebergementCard = ({ title, cover }) => {
         alt={`Photo de l'hébergement ${title}`}
         className="hebergement-card__img"
       />
-      <h2>{title}</h2>
+      <h2 className="hebergement-card__title">{title}</h2>
     </li>
   );
 };
 
 // Définir les PropTypes pour valider les props
 HebergementCard.propTypes = {
-  title: PropTypes.string.isRequired, // 'title et cover' doivent être des chaîne de caractères et sont obligatoires
+  title: PropTypes.string.isRequired,
   cover: PropTypes.string.isRequired,
 };
 

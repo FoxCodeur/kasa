@@ -12,21 +12,43 @@
   background: $cardsGradient;
   padding: 10px;
 
+  &__img {
+    min-height: 225px;
+  }
+
+  &__title {
+    color: $quaternary-color;
+    @include m-font;
+  }
+
   /* Mobile */
   @include media-query(mobile) {
     width: 100%;
     height: 255px;
+
+    &__img {
+      min-height: 190px;
+    }
+    &__title {
+      @include s-font-bold;
+    }
   }
 
   /* Mobile Large */
+  @include media-query(mobile-large) {
+    width: 100%;
+  }
+
+  /* Tablet */
   @include media-query(tablet) {
     width: 100%;
     height: 235px;
-  }
-}
 
-.hebergement-card h2 {
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+    &__img {
+      min-height: 110px;
+    }
+    &__title {
+      @include s-font-bold;
+    }
+  }
 }

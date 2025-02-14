@@ -6,6 +6,7 @@ const Collapse = ({ title, content, fullWidth = false }) => {
   // Valeur par défaut ici et non en bas car dépréciation
   const [isOpen, setIsOpen] = useState(false);
 
+  // Fonction pour inverser l'état de isOpen lors du clic sur le bouton
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
   };
@@ -28,7 +29,8 @@ const Collapse = ({ title, content, fullWidth = false }) => {
       </div>
       <div className={`content-container ${isOpen ? "appear" : ""}`}>
         <div className="text-content">
-          {typeof content === "string" ? <p>{content}</p> : content}
+          {/* Directement rendre content dans un <p> si c'est du texte */}
+          <p>{content}</p>
         </div>
       </div>
     </section>
@@ -37,7 +39,7 @@ const Collapse = ({ title, content, fullWidth = false }) => {
 
 Collapse.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.node.isRequired,
+  content: PropTypes.node.isRequired, // Permet de passer n'importe quel contenu React
   fullWidth: PropTypes.bool,
 };
 
