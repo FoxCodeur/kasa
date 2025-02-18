@@ -14,7 +14,8 @@ const Banner = ({ className = "", text, imageUrl }) => {
           backgroundImage: `url(${imageUrl || defaultImageUrl})`,
         }}
       ></div>
-
+      {/* Cette condition vérifie si les données nécessaires sont présentes
+       avant d'afficher le contenu.  */}
       {text && (text.firstLine || text.secondLine) && (
         <h1 className="banner__text">
           {text.firstLine && (

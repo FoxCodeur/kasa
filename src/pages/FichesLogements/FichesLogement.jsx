@@ -18,8 +18,11 @@ const FicheLogement = () => {
         const foundLogement = response.data.find((item) => item.id === id);
 
         if (!foundLogement) {
-          navigate("*"); // Redirection vers la 404
+          navigate("*");
         } else {
+          foundLogement.rating = Number(foundLogement.rating); // Conversion
+          //  du raiting en nombre car il nous est fourni en chaine de caractère
+          // dans le json.
           setLogement(foundLogement);
         }
       } catch (err) {
