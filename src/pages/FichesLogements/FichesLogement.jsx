@@ -88,7 +88,7 @@ const FicheLogement = () => {
       {/* Description et équipements avec Collapse */}
       <Collapse
         title="Description"
-        content={<p>{logement.description}</p>}
+        content={logement.description}
         className="fiche-logement__description"
       />
       <Collapse

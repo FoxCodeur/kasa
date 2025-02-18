@@ -3,12 +3,18 @@ import PropTypes from "prop-types";
 import "./Collapse.scss";
 
 const Collapse = ({ title, content, fullWidth = false }) => {
-  // Valeur par défaut ici et non en bas car dépréciation
   const [isOpen, setIsOpen] = useState(false);
 
-  // Fonction pour inverser l'état de isOpen lors du clic sur le bouton
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
+  };
+
+  // Vérifier si le contenu est une chaîne de caractères ou non
+  const renderContent = () => {
+    if (typeof content === "string") {
+      return <p>{content}</p>; // Rendre comme texte dans <p> si c'est une chaîne
+    }
+    return content; // Sinon, rendre le contenu tel quel (par exemple une <ul>)
   };
 
   return (
@@ -29,8 +35,8 @@ const Collapse = ({ title, content, fullWidth = false }) => {
       </div>
       <div className={`content-container ${isOpen ? "appear" : ""}`}>
         <div className="text-content">
-          {/* Directement rendre content dans un <p> si c'est du texte */}
-          <p>{content}</p>
+          {renderContent()}{" "}
+          {/* Appel de la fonction qui rend le contenu de manière dynamique */}
         </div>
       </div>
     </section>
