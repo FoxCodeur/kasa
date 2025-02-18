@@ -5,12 +5,11 @@ import "./CardListSection.scss";
 import HebergementCard from "../cardListSection/hebergementCard/HebergementCard";
 
 const CardListSection = () => {
-  // Le hook useState est utilisé pour déclarer et gérer l'état dans un
+  // useState est utilisé pour déclarer et gérer l'état dans un
   // composant fonctionnel React.
   const [hebergements, setHebergements] = useState([]); // S'assurer
   // que l'état initial est bien un tableau
   const navigate = useNavigate(); // Hook de navigation pour rediriger
-  // l'utilisateur
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,13 +19,16 @@ const CardListSection = () => {
         // une valeur est un tableau (array). Elle retourne true si l'argument
         // passé est un tableau, sinon elle retourne false.
         if (!Array.isArray(response.data)) {
-          throw new Error("Format de données incorrect.");
+          throw new Error(
+            "Données non valides reçues pour les cards, attendu un tableau."
+          );
         }
         //  fonction de mise à jour de l'état
         setHebergements(response.data);
       } catch (err) {
-        console.error("Erreur lors de la récupération des données:", err);
-        navigate("*"); // Redirection vers la page d'erreur (route 404 ou personnalisée)
+        // On affiche directement l'erreur avec un message explicite
+        console.error(err.message);
+        navigate("*");
       }
     };
 
@@ -40,8 +42,7 @@ const CardListSection = () => {
           hebergements.map((hebergement) => (
             <NavLink
               key={hebergement.id}
-              // On utilisise la methode de Concaténation.
-              // to est une prop que tu passes à NavLink, elle indique la
+              // Concaténation. On passes la prop to à NavLink, elle indique la
               // destination du lien de navigation. Elle est construite
               // dynamiquement avec hebergement.id pour mener l'utilisateur vers
               // la fiche d'un hébergement.

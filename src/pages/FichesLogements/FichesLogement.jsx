@@ -18,13 +18,16 @@ const FicheLogement = () => {
         const foundLogement = response.data.find((item) => item.id === id);
 
         if (!foundLogement) {
-          navigate("*");
-        } else {
-          foundLogement.rating = Number(foundLogement.rating); // Conversion
-          //  du raiting en nombre car il nous est fourni en chaine de caractère
-          // dans le json.
-          setLogement(foundLogement);
+          throw new Error(`Le logement avec l'ID ${id} n'a pas été trouvé.`);
         }
+        const rating = Number(foundLogement.rating);
+        // "Si la valeur de rating n'est pas un nombre valide".
+        if (isNaN(rating)) {
+          throw new Error("Le rating du logement est invalide.");
+        }
+
+        foundLogement.rating = rating; // Attribution du rating converti en nombre
+        setLogement(foundLogement);
       } catch (err) {
         console.error("Erreur lors de la récupération des données:", err);
         navigate("*");
