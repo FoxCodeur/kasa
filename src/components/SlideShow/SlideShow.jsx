@@ -51,6 +51,12 @@ const SlideShow = ({ images }) => {
                 alt={`Slide ${index + 1}`}
                 className="slideshow__image"
               />
+              {/* Affichage du compteur */}
+              {index === currentIndex && (
+                <div className="slideshow__counter">
+                  {`${index + 1} / ${images.length}`}
+                </div>
+              )}
             </div>
           </div>
         ))}

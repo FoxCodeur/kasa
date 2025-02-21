@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./About.scss";
 import AboutSectionBanner from "./AboutSectionBanner/AboutSectionBanner";
 import Collapse from "../../components/Collapse/Collapse";
@@ -12,9 +11,17 @@ const About = () => {
   useEffect(() => {
     const fetchPrinciples = async () => {
       try {
-        const response = await axios.get("/AboutList.json");
-        if (Array.isArray(response.data)) {
-          setPrinciples(response.data);
+        const response = await fetch("/AboutList.json"); // Fetch pour récupérer les données
+
+        // Vérification de la réponse HTTP
+        if (!response.ok) {
+          throw new Error(`Erreur réseau: ${response.status}`);
+        }
+
+        const data = await response.json(); // Conversion des données en JSON
+
+        if (Array.isArray(data)) {
+          setPrinciples(data);
         } else {
           throw new Error("Erreur lors de la récupération des principes");
         }

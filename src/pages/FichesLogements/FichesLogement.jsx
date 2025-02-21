@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./FichesLogement.scss";
 import Collapse from "../../components/Collapse/Collapse";
-import SlideShow from "./SlideShow/SlideShow";
+import SlideShow from "../../components/SlideShow/SlideShow";
 import Stars from "../../components/Stars/Stars";
 
 const FicheLogement = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  // Dans FicheLogement, l'état logement représente un seul objet
+  // (et non une liste d'éléments). Il peut être soit :
+  // null au départ (aucune donnée chargée),
+  // un objet contenant les infos d’un logement une fois l’API chargée.
   const [logement, setLogement] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/data.json");
-        const foundLogement = response.data.find((item) => item.id === id);
+        const response = await fetch("/data.json");
+
+        if (!response.ok) {
+          throw new Error("Erreur lors de la récupération des données.");
+        }
+
+        const data = await response.json();
+        const foundLogement = data.find((item) => item.id === id);
 
         if (!foundLogement) {
           throw new Error(`Le logement avec l'ID ${id} n'a pas été trouvé.`);
@@ -36,7 +45,7 @@ const FicheLogement = () => {
 
     fetchData();
   }, [id, navigate]);
-
+  // null indique clairement que les données ne sont pas encore chargées
   if (!logement) return null; // Évite un rendu inutile avant le chargement des données
 
   return (
