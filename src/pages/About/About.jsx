@@ -5,26 +5,20 @@ import AboutSectionBanner from "./AboutSectionBanner/AboutSectionBanner";
 import Collapse from "../../components/Collapse/Collapse";
 
 const About = () => {
-  const [principles, setPrinciples] = useState(null);
+  const [principles, setPrinciples] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPrinciples = async () => {
       try {
-        const response = await fetch("/AboutList.json"); // Fetch pour récupérer les données
+        const response = await fetch("/AboutList.json");
+        if (!response.ok) throw new Error(`Erreur réseau: ${response.status}`);
 
-        // Vérification de la réponse HTTP
-        if (!response.ok) {
-          throw new Error(`Erreur réseau: ${response.status}`);
-        }
+        const data = await response.json();
+        if (!Array.isArray(data))
+          throw new Error("Format de données invalide: attendu un tableau.");
 
-        const data = await response.json(); // Conversion des données en JSON
-
-        if (Array.isArray(data)) {
-          setPrinciples(data);
-        } else {
-          throw new Error("Erreur lors de la récupération des principes");
-        }
+        setPrinciples(data);
       } catch (err) {
         console.error(err.message);
         navigate("*");
@@ -37,18 +31,15 @@ const About = () => {
   return (
     <div className="about">
       <AboutSectionBanner />
-      {/* La condition {principles && principles.map(...)} permet de rendre le
-      contenu du tableau principles uniquement lorsque celui-ci est chargé et
-      disponible (c'est-à-dire lorsqu'il est différent de null ou undefined).  */}
-      {principles &&
-        principles.map((principle, index) => (
-          <Collapse
-            key={index}
-            title={principle.title}
-            content={principle.content}
-            fullWidth={true}
-          />
-        ))}
+      {/* Si principles est un tableau vide, rien ne sera affiché, mais le map() sera sans erreur. */}
+      {principles.map((principle, index) => (
+        <Collapse
+          key={index}
+          title={principle.title}
+          content={principle.content}
+          fullWidth={true}
+        />
+      ))}
     </div>
   );
 };

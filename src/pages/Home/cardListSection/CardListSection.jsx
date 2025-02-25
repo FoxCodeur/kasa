@@ -13,27 +13,20 @@ const CardListSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/data.json"); // Fetch pour récupérer les données
+        const response = await fetch("/data.json");
 
-        // Vérification de la réponse HTTP
         if (!response.ok) {
           throw new Error(`Erreur réseau: ${response.status}`);
         }
 
-        const data = await response.json(); // Conversion des données en JSON
+        const data = await response.json();
 
-        // Array.isArray() est une méthode JavaScript qui permet de vérifier si
-        // une valeur est un tableau (array). Elle retourne true si l'argument
-        // passé est un tableau, sinon elle retourne false.
         if (!Array.isArray(data)) {
-          throw new Error(
-            "Données non valides reçues pour les cards, attendu un tableau."
-          );
+          throw new Error("Format de données invalide: attendu un tableau.");
         }
-        //  fonction de mise à jour de l'état
+
         setHebergements(data);
       } catch (err) {
-        // On affiche directement l'erreur avec un message explicite
         console.error(err.message);
         navigate("*");
       }
